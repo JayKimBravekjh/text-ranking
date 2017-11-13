@@ -57,6 +57,10 @@ X_test = pd.DataFrame(
 
 # Maintenant que le modèle est entraîné, on peut l'utiliser pour faire des
 # prédictions
-y_pred = model.predict_proba(X_test)
+y_pred = pd.DataFrame(
+	data=model.predict_proba(X_test),
+	columns=['Negative', 'Positive'],
+	index=test_names
+)
 
 print(y_pred)
